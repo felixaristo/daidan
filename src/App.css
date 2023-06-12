@@ -1,38 +1,95 @@
-.App {
-  text-align: center;
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+@import '../node_modules/@syncfusion/ej2-base/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-inputs/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-buttons/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-lists/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-navigations/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-popups/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-dropdowns/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-grids/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-react-spreadsheet/styles/material.css';
+
+body {
+  background-color: #fafcff;
+  overflow-x: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input:focus, textarea:focus {
+  box-shadow: none !important;
+  border-color:#ced4da !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+  height: fit-content;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.dropdown-toggle::after {
+  border: none !important;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-check:checked + .btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check) + .btn:active {
+  border-color: white !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pointer {
+  cursor: pointer;
+}
+
+.w-10 {
+  width: 10%!important;
+}
+
+.w-20 {
+  width: 20%!important;
+}
+
+.w-15 {
+  width: 15%!important;
+}
+
+.w-40 {
+  width: 40%!important;
+}
+
+.w-70 {
+  width: 70%!important;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.my-6 {
+  margin-bottom: 7rem;
+}
+
+.accordion {
+  border-radius: var(--bs-card-border-radius);
+}
+
+.accordion-button:focus {
+  box-shadow: none !important;
+  border-color:#ced4da !important;
+}
+
+.form-select:focus {
+  box-shadow: none !important;
+  border-color:#ced4da !important;
+}
+
+.fs-7 {
+  font-size: 0.9rem!important;
+}
+
+.fs-score {
+  font-size: 4rem!important;
+}
+
+.scroll-card {
+  height: 60vh!important;
 }
