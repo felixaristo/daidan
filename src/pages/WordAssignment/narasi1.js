@@ -43,7 +43,7 @@ const WordAssignment1 = () => {
   return (
     <>
       <p className="fs-3 fw-bold text-center">Word Assessment 1</p>
-      <Row className="mt-4">
+      {/* <Row className="mt-4">
         <Col sm={9}>
           <Dropdown className="mt-2">
             <Dropdown.Toggle
@@ -104,7 +104,7 @@ const WordAssignment1 = () => {
             </Dropdown.Menu>
           </Dropdown>
         </Col>
-      </Row>
+      </Row> */}
       <Card className="mt-3 border-0 shadow-lg p-3">
         <div className="d-flex justify-content-center">
           <Form.Select className="mt-2 w-40 text-center" size="lg">

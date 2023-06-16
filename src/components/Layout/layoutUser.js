@@ -3,7 +3,7 @@ import { Dropdown } from "react-bootstrap";
 import { Outlet, useNavigate } from "react-router-dom";
 import logo from "../../assets/ONE-GML-DLS.png";
 
-const Layout = ({ children }) => {
+const LayoutUser = ({ children }) => {
   const navigate = useNavigate();
   const name = localStorage.getItem("name")
 
@@ -40,4 +40,4 @@ const Layout = ({ children }) => {
   );
 };
 
-export default Layout;
+export default LayoutUser;

@@ -12,16 +12,16 @@ const OpeningAssignment = () => {
           Silahkan baca narasi di bawah selama 5 menit!
         </p>
         <p className="fs-5 mt-2">
-          Seorang karyawan PT Kemala Shipping yang bernama Sunarto yang menjabat
-          sebagai Technical Supervisor dari Department Technical Tug & Barge
-          diberikan tugas untuk melakukan Perjalanan Dinas ke Site Office di
-          Kendari oleh atasannya yang bernama Sukirman, beliau sendiri menjabat
-          sebagai Technical Manager di PT Kemala Shipping. Tujuan dari
-          Perjalanan Dinas tersebut adalah untuk menginspeksi kapal tongkang.
-          Perjalanan Dinas akan dilakukan mulai dari Senin, 5 Juni 2023 selama 5
-          hari. Sesuai SOP, perlu dibuat pengajuan Surat Tugas sebelum hari
-          keberangkatan. Buatlah Surat Tugas Perjalanan Dinas yang sesuai dengan
-          narasi di atas.
+          An employee of PT Daidan Grup Indonesia named Sunarto as Technical
+          Supervisor of Technical Tug & Barge Department will be sent on a
+          business trip to the Site Office located in Kendari, Southeast
+          Sulawesi by his superior named Sukirman as Technical Manager. The
+          purpose of this business trip is to do an inspection of the barge. The
+          business trip will start from Monday, June 5th, 2023 to Saturday, June
+          10th, 2023. According to the SOP, it is necessary to make an
+          Assignment Letter submission 1 day prior to the departure. Make an
+          official Business Trip Assignment Letter according to the narrative
+          above.
         </p>
       </div>
       <div className="d-flex justify-content-center mt-3">

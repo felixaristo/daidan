@@ -108,25 +108,39 @@ const WordAssignment2 = () => {
         2023. <br />
         10. Jabatan Pemohon adalah HCBP Specialist. <br />
         <br />
-        Nama-nama Entitas: <br />
-        Daidan Group PT Galley Adhika Arnawama (GAA) : 55 karyawan <br />
-        PT Ataba Group Indonesia (ATGI) : 15 karyawan <br />
-        PT Adhika Arnawama Agensi (AAA) : 35 karyawan <br />
-        PT Daidan Aditama Yaksa (DAYA) : 187 karyawan <br />
-        PT Kemala Shipping (KS) : 14 karyawan <br />
-        PT Anaga Group Indonesia (AGI) : 25 karyawan <br />
-        PT Kintoki Sea Logistics (KSL) : 7 karyawan <br />
-        PT Mitrabahtera Segara Sejati Tbk : 189 karyawan <br />
-        PT Anaga Shipping Indonesia (ASI) : 27 karyawan <br />
-        PT Daidan Group Indonesia (DGI) : 46 karyawan <br />
-        PT Heroez Sinar Sanjaya : 12 karyawan <br />
-        PT Onic Sinar Sanjaya : 32 karyawan <br />
-        PT Mitra Alam Segara Sejati : 11 karyawan <br />
-        PT Anaga Abyudaya Ananta (AAB) : 47 karyawan <br />
+        Nama-nama Entitas Daidan Group: <br />
+        PT Suka Senang Bersama : 55 karyawan
+        <br />
+        PT Ada Asa Ada Rasa : 15 karyawan
+        <br />
+        PT Ayo Kita Bangkit Bersama : 35 karyawan
+        <br />
+        PT Kawan Baru Jaya : 187 karyawan
+        <br />
+        PT Gerhana Matahari Bulan : 32 karyawan
+        <br />
+        PT Inti Layar Jaya Maju : 11 karyawan
+        <br />
+        PT Bisa Maju Sejahtera : 14 karyawan
+        <br />
+        PT Berlayar Terus Sentosa : 25 karyawan
+        <br />
+        PT Mitra Samudera Sejahtera : 7 karyawan
+        <br />
+        PT Selamat Sentosa Berjaya : 189 karyawan
+        <br />
+        PT Terang Terus Terang Selamanya : 27 karyawan
+        <br />
+        PT Ceria Bersama Kami : 46 karyawan
+        <br />
+        PT Fast and Furious Abadi : 12 karyawan
+        <br />
+        PT Jaya Selalu Berlayar : 47 karyawan
+        <br />
         <br />
         Nama-nama panitia: <br />
-        Sandy, Cecillia, Haris, Budi, Cahya, Firman, Indah, Devi, Fara,
-        Zulkarnaen, Tantri, Julia, Ida, Dandy, Russel, Bambang
+        Wanita: Cecillia, Cahya, Indah, Devi, Fara, Tantri, Julia, Ida <br />
+        Pria: Sandy, Haris, Budi, Firman, Zulkarnaen, Dandy, Russel, Bambang
       </Card>
       <Card className="border-0 shadow-lg p-4 mt-3">
         <p>
@@ -150,11 +164,9 @@ const WordAssignment2 = () => {
         </div>
         <div className="d-flex justify-content-center mt-2">
           <button
-          id="btn-title"
+            id="btn-title"
             className="btn btn-dark fs-7 ms-2 w-10"
-            onClick={() =>
-              setBoldTitle()
-            }
+            onClick={() => setBoldTitle()}
           >
             Set Bold
           </button>

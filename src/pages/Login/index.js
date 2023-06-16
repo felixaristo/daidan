@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import img from "../../assets/Cover Login-05.jpg";
 import logo from "../../assets/ONE-GML-DLS.png";
+import axios from "axios";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -18,15 +19,29 @@ const Login = () => {
   };
 
   const handleSubmit = () => {
-    if (form.username === "user") {
-      localStorage.setItem("name", "User");
-      navigate("/");
-    } else if (form.username === "admin") {
-      localStorage.setItem("name", "Admin");
-      navigate("/admin");
-    } else {
-      alert("error");
-    }
+    axios
+      .post(`${process.env.REACT_APP_URL}auth/login`, form, {
+        headers: {
+          Authorization:
+            "Basic " +
+            btoa(
+              `${process.env.REACT_APP_USERNAME}:${process.env.REACT_APP_PASSWORD}`
+            ),
+        },
+      })
+      .then((res) => {
+        localStorage.setItem("auth", 1);
+        localStorage.setItem("role", res.data.user.role);
+        localStorage.setItem("name", res.data.user.fullname);
+        localStorage.setItem("token", res.data.user.token.access_token);
+        localStorage.setItem("id_company", res.data.user.id_company);
+        localStorage.setItem("name_company", res.data.user.company_name);
+        localStorage.setItem("logo_company", res.data.user.logo_company);
+        navigate("/");
+      })
+      .catch((err) => {
+        alert("failed");
+      });
   };
 
   return (

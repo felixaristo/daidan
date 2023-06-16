@@ -7,13 +7,10 @@ const Thankyou = () => {
 
   return (
     <>
-      <p className="fs-2 fw-bold text-center">Word Assessment</p>
+      <p className="fs-2 fw-bold text-center">Assessment</p>
       <div className="card p-4 shadow-lg border-0 text-center">
         <p className="fs-5">
-          Terima kasih Anda telah mengerjakan Word Assessment. Dengan nilai
-        </p>
-        <p className="fs-score fs-bold text-primary">
-          99
+          Terima kasih Anda telah mengerjakan Assessment ini.
         </p>
       </div>
       <div className="d-flex justify-content-center mt-4">

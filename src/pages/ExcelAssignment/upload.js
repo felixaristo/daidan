@@ -18,6 +18,7 @@ const Upload = () => {
       )
       .then((res) => {
         setScore(res.data.nilai);
+        navigate("/thankyou")
       })
       .catch((err) => {
         alert("failed");
@@ -61,7 +62,7 @@ const Upload = () => {
         </button>
         {/* <button className="btn btn-success p-2 w-10 mx-2">Cancel</button> */}
       </div>
-      <p className="text-center fs-2 fw-bold mb-0 mt-2">{score}</p>
+      {/* <p className="text-center fs-2 fw-bold mb-0 mt-2">{score}</p> */}
       <div className="d-flex justify-content-center mt-2">
         <div className="border w-25 bg-danger p-2 text-white text-center">
           05:19

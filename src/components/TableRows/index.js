@@ -5,8 +5,12 @@ import { dataColor } from "../../assets/Dummy";
 
 const Table = ({ data }) => {
   const [rows, setRow] = useState([]);
+  var [number, setNumber] = useState(0);
+
   const addRowTable = () => {
+    setNumber((number += 1));
     const data = {
+      no: number,
       id: nanoid(),
       name: "",
       total: "",
@@ -17,6 +21,7 @@ const Table = ({ data }) => {
     const dataRow = [...rows];
     dataRow.splice(index, 1);
     setRow(dataRow);
+    setNumber((number -= 1));
   };
   const onValUpdate = (i, event) => {
     const { name, value } = event.target;
@@ -74,7 +79,7 @@ const Table = ({ data }) => {
           {rows.map((item, index) => (
             <tr key={index} id={"color_" + item.id}>
               <td className="text-center">
-                <p>{1}</p>
+                <p>{item.no}</p>
               </td>
               <td width="40%">
                 <Form.Select
