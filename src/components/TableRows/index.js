@@ -49,11 +49,6 @@ const Table = ({ data }) => {
     }
   };
 
-  const unsetBold = (id) => {
-    document.getElementById(id).style.fontWeight = "normal";
-    document.getElementById("total_" + id).style.fontWeight = "normal";
-  };
-
   const setColor = (id, color) => {
     if (color === "Merah Muda") {
       document.getElementById("color_" + id).style.backgroundColor = "#FDCEDF";
@@ -61,6 +56,12 @@ const Table = ({ data }) => {
       document.getElementById("color_" + id).style.backgroundColor = "#C0DBEA";
     } else if (color === "Hijau Muda") {
       document.getElementById("color_" + id).style.backgroundColor = "#DFFFD8";
+    }
+  };
+
+  const preventMinus = (e) => {
+    if (e.code === "Minus") {
+      e.preventDefault();
     }
   };
 
@@ -82,11 +83,7 @@ const Table = ({ data }) => {
                 <p>{item.no}</p>
               </td>
               <td width="40%">
-                <Form.Select
-                  className="w-100"
-                  id={item.id}
-                  onChange={() => unsetBold(item.id)}
-                >
+                <Form.Select className="w-100" id={item.id}>
                   {data.map((item) => (
                     <option value={item}>{item}</option>
                   ))}
@@ -95,7 +92,8 @@ const Table = ({ data }) => {
               <td>
                 <input
                   type="number"
-                  // value={email}
+                  min="0"
+                  onKeyPress={preventMinus}
                   // onChange={(event) => onValUpdate(index, event)}
                   name="email"
                   className="form-control w-100"
@@ -108,7 +106,7 @@ const Table = ({ data }) => {
                     className="btn btn-dark px-3"
                     onClick={() => tableRowRemove(index)}
                   >
-                    -
+                    Delete Row
                   </button>
                   <button
                     id={"btn-" + item.id}
@@ -137,8 +135,12 @@ const Table = ({ data }) => {
         </tbody>
       </table>
       <div className="d-flex justify-content-center">
-        <button className="btn btn-danger px-3 w-25" onClick={addRowTable}>
-          +
+        <button
+          className="btn btn-danger px-3 w-25"
+          onClick={addRowTable}
+          disabled={(rows.length === 14)}
+        >
+          Add Row
         </button>
       </div>
     </>

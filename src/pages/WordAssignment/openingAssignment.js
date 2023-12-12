@@ -6,12 +6,12 @@ const OpeningAssignment = () => {
 
   return (
     <>
-      <p className="fs-2 fw-bold text-center">Word Assessment</p>
       <div className="card p-4 shadow-lg border-0 text-center">
         <p className="fs-5 fw-bold mb-0">
-          Silahkan baca narasi di bawah selama 5 menit!
+          Please read this information below in
+          <span className="ms-2 text-danger">5 minutes!</span>
         </p>
-        <p className="fs-5 mt-2">
+        <p className="fs-5 mt-4 text-justify">
           An employee of PT Daidan Grup Indonesia named Sunarto as Technical
           Supervisor of Technical Tug & Barge Department will be sent on a
           business trip to the Site Office located in Kendari, Southeast
@@ -19,9 +19,12 @@ const OpeningAssignment = () => {
           purpose of this business trip is to do an inspection of the barge. The
           business trip will start from Monday, June 5th, 2023 to Saturday, June
           10th, 2023. According to the SOP, it is necessary to make an
-          Assignment Letter submission 1 day prior to the departure. Make an
-          official Business Trip Assignment Letter according to the narrative
-          above.
+          Assignment Letter submission 1 day prior to the departure. <br />
+          <br />
+          <span className="fw-bold">
+            Make an official Business Trip Assignment Letter according to the
+            narrative above.
+          </span>
         </p>
       </div>
       <div className="d-flex justify-content-center mt-3">
@@ -34,7 +37,7 @@ const OpeningAssignment = () => {
           className="btn btn-success p-2 w-50"
           onClick={() => navigate("/word-assignment")}
         >
-          Mulai
+          Start
         </button>
       </div>
     </>

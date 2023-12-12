@@ -37,7 +37,24 @@ const Login = () => {
         localStorage.setItem("id_company", res.data.user.id_company);
         localStorage.setItem("name_company", res.data.user.company_name);
         localStorage.setItem("logo_company", res.data.user.logo_company);
-        navigate("/");
+        axios
+          .get(`${process.env.REACT_APP_URL}daidan/get_status`, {
+            headers: {
+              Authorization: "Bearer " + res.data.user.token.access_token,
+            },
+          })
+          .then((res) => {
+            localStorage.setItem("browser", res.data.browser);
+            localStorage.setItem("last_mc", res.data.last_mc);
+            navigate("/home")
+            // res.data?.status === "0"
+            //   ? navigate("/opening")
+            //   : res.data?.status === "1"
+            //   ? navigate("/test")
+            //   : res.data?.status === "2"
+            //   ? navigate("/thankyou")
+            //   : navigate("/");
+          });
       })
       .catch((err) => {
         alert("failed");

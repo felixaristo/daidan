@@ -42,7 +42,6 @@ const WordAssignment1 = () => {
 
   return (
     <>
-      <p className="fs-3 fw-bold text-center">Word Assessment 1</p>
       {/* <Row className="mt-4">
         <Col sm={9}>
           <Dropdown className="mt-2">

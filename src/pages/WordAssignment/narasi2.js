@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Col, Dropdown, Form, Row } from "react-bootstrap";
+import { Button, Card, Col, Dropdown, Form, Modal, Row } from "react-bootstrap";
 import { dataDepartemen, dataFontsize } from "../../assets/Dummy";
 import Table from "../../components/TableRows";
 import { useNavigate } from "react-router-dom";
@@ -17,6 +17,25 @@ const WordAssignment2 = () => {
   const [dataTempat, setDataTempat] = useState([]);
   const [dataTotalJumlahKaryawan, setDataTotalJumlahKaryawan] = useState([]);
   const [rowsPanitia, setRowsPanitia] = useState([]);
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    fetch("https://apidls.onegml.com/daidan/pilihan_narasi")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setDataEntitas(data.dataNarasi_2.dataEntitas);
+        setDataJabatan(data.dataNarasi_2.dataJabatan);
+        setDataJumlahKaryawan(data.dataNarasi_2.dataJumlahKaryawan);
+        setDataNamaPanitia(data.dataNarasi_2.dataNamaPanitia);
+        setDataNamaSurat(data.dataNarasi_2.dataNamaSurat);
+        setDataTanggal(data.dataNarasi_2.dataTanggal);
+        setDataTanggalPengajuan(data.dataNarasi_2.dataTanggalPengajuan);
+        setDataTempat(data.dataNarasi_2.dataTempat);
+        setDataTotalJumlahKaryawan(data.dataNarasi_2.dataTotalJumlahKaryawan);
+      });
+  }, []);
 
   const addRowPanitia = () => {
     const data = {
@@ -25,11 +44,13 @@ const WordAssignment2 = () => {
     };
     setRowsPanitia([...rowsPanitia, data]);
   };
+
   const removeRowPanitia = (index) => {
     const dataRow = [...rowsPanitia];
     dataRow.splice(index, 1);
     setRowsPanitia(dataRow);
   };
+
   const updateRowPanitia = (i, event) => {
     const { name, value } = event.target;
     const data = [...rowsPanitia];
@@ -56,92 +77,107 @@ const WordAssignment2 = () => {
     const isMobileVersion = document.getElementsByClassName("mystyle-" + id);
     if (isMobileVersion.length > 0) {
       document.getElementById(id).style.fontWeight = "normal";
-      document.getElementById("panitia-" + id).innerHTML = "Set Bold";
+      document.getElementById("panitiaBold-" + id).innerHTML = "Set Bold";
       const element = document.getElementById(id);
       element.classList.remove("mystyle-" + id);
     } else {
       document.getElementById(id).style.fontWeight = "bold";
-      document.getElementById("panitia-" + id).innerHTML = "Unbold";
+      document.getElementById("panitiaBold-" + id).innerHTML = "Unbold";
       const element = document.getElementById(id);
       element.classList.add("mystyle-" + id);
     }
   };
 
-  useEffect(() => {
-    fetch("https://apidls.onegml.com/daidan/pilihan_narasi")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setDataEntitas(data.dataNarasi_2.dataEntitas);
-        setDataJabatan(data.dataNarasi_2.dataJabatan);
-        setDataJumlahKaryawan(data.dataNarasi_2.dataJumlahKaryawan);
-        setDataNamaPanitia(data.dataNarasi_2.dataNamaPanitia);
-        setDataNamaSurat(data.dataNarasi_2.dataNamaSurat);
-        setDataTanggal(data.dataNarasi_2.dataTanggal);
-        setDataTanggalPengajuan(data.dataNarasi_2.dataTanggalPengajuan);
-        setDataTempat(data.dataNarasi_2.dataTempat);
-        setDataTotalJumlahKaryawan(data.dataNarasi_2.dataTotalJumlahKaryawan);
-      });
-  }, []);
+  const setItalicPanitia = (id) => {
+    const isMobileVersion = document.getElementsByClassName("mystyle1-" + id);
+    if (isMobileVersion.length > 0) {
+      document.getElementById(id).style.fontStyle = "normal";
+      document.getElementById("panitiaItalic-" + id).innerHTML = "Set Italic";
+      const element = document.getElementById(id);
+      element.classList.remove("mystyle1-" + id);
+    } else {
+      document.getElementById(id).style.fontStyle = "italic";
+      document.getElementById("panitiaItalic-" + id).innerHTML = "Unitalic";
+      const element = document.getElementById(id);
+      element.classList.add("mystyle1-" + id);
+    }
+  };
 
   return (
     <>
-      <p className="fs-3 fw-bold text-center">Word Assessment 2</p>
-      <Card className="border-0 shadow-lg p-4 scroll-card overflow-auto">
-        Instruksi: <br />
-        1. Buatlah nama surat dengan size 14 dan di- bold. <br />
-        2. Kegiatan akan dilakukan pada tanggal 21-22 Juli 2023 di Hotel
-        Intercontinental Bandung, Jawa Barat. <br />
-        3. Hitung dan isi total jumlah karyawan. <br />
-        4. Buatlah tabel sebanyak jumlah entitas di Daidan Group, berikan kolom
-        nomor, nama entitas dan jumlah karyawan masing-masing entitas. <br />
-        5. Isi dengan nama-nama entitas sesuai abjad beserta jumlah karyawan
-        masing-masing entitas. <br />
-        6. Entitas yang jumlah karyawannya {">"}
-        35 karyawan diberi background warna biru muda di seluruh row. <br />
-        7. Entitas yang jumlah karyawannya 35 atau kurang, diberi background
-        warna merah muda di seluruh row dan di- bold. <br />
-        8. Buatlah list dengan tanda • untuk nama-nama panitia berdasarkan
-        abjad, nama panitia wanita di- bold. <br />
-        9. Pemohon mengajukan proposal ini pada tanggal terakhir bulan Februari
-        2023. <br />
-        10. Jabatan Pemohon adalah HCBP Specialist. <br />
-        <br />
-        Nama-nama Entitas Daidan Group: <br />
-        PT Suka Senang Bersama : 55 karyawan
-        <br />
-        PT Ada Asa Ada Rasa : 15 karyawan
-        <br />
-        PT Ayo Kita Bangkit Bersama : 35 karyawan
-        <br />
-        PT Kawan Baru Jaya : 187 karyawan
-        <br />
-        PT Gerhana Matahari Bulan : 32 karyawan
-        <br />
-        PT Inti Layar Jaya Maju : 11 karyawan
-        <br />
-        PT Bisa Maju Sejahtera : 14 karyawan
-        <br />
-        PT Berlayar Terus Sentosa : 25 karyawan
-        <br />
-        PT Mitra Samudera Sejahtera : 7 karyawan
-        <br />
-        PT Selamat Sentosa Berjaya : 189 karyawan
-        <br />
-        PT Terang Terus Terang Selamanya : 27 karyawan
-        <br />
-        PT Ceria Bersama Kami : 46 karyawan
-        <br />
-        PT Fast and Furious Abadi : 12 karyawan
-        <br />
-        PT Jaya Selalu Berlayar : 47 karyawan
-        <br />
-        <br />
-        Nama-nama panitia: <br />
-        Wanita: Cecillia, Cahya, Indah, Devi, Fara, Tantri, Julia, Ida <br />
-        Pria: Sandy, Haris, Budi, Firman, Zulkarnaen, Dandy, Russel, Bambang
-      </Card>
+      <Modal show={show} onHide={()=>setShow(false)}>
+        <Card className="border-0 shadow-lg p-4 scroll-card overflow-auto">
+          <b>Instruksi:</b>
+          <ol>
+            <li>Buatlah nama surat dengan size 14 dan di-bold.</li>
+            <li>
+              Kegiatan akan dilakukan pada tanggal 21-22 Juli 2023 di Hotel
+              Intercontinental Bandung, Jawa Barat.
+            </li>
+            <li>Hitung dan isi total jumlah karyawan.</li>
+            <li>
+              Buatlah tabel sebanyak jumlah entitas di Daidan Group, berikan
+              kolom nomor, nama entitas dan jumlah karyawan masing-masing
+              entitas.
+            </li>
+            <li>
+              Isi dengan nama-nama entitas sesuai abjad beserta jumlah karyawan
+              masing-masing entitas.
+            </li>
+            <li>
+              Entitas yang jumlah karyawannya {">"} 35 karyawan diberi
+              background warna biru muda di seluruh row.
+            </li>
+            <li>
+              Entitas yang jumlah karyawannya 35 atau kurang, diberi background
+              warna merah muda di seluruh row dan di-bold.
+            </li>
+            <li>
+              Buatlah list nama-nama panitia berdasarkan abjad, nama panitia
+              wanita di-bold dan laki-laki di-italic.
+            </li>
+            <li>
+              Pemohon mengajukan proposal ini pada tanggal terakhir bulan
+              Februari 2023.
+            </li>
+            <li>Jabatan Pemohon adalah HCBP Specialist</li>
+          </ol>
+          <br />
+          <b>Nama-nama Entitas Daidan Group:</b>
+          PT Suka Senang Bersama : 55 karyawan
+          <br />
+          PT Ada Asa Ada Rasa : 15 karyawan
+          <br />
+          PT Ayo Kita Bangkit Bersama : 35 karyawan
+          <br />
+          PT Kawan Baru Jaya : 187 karyawan
+          <br />
+          PT Gerhana Matahari Bulan : 32 karyawan
+          <br />
+          PT Inti Layar Jaya Maju : 11 karyawan
+          <br />
+          PT Bisa Maju Sejahtera : 14 karyawan
+          <br />
+          PT Berlayar Terus Sentosa : 25 karyawan
+          <br />
+          PT Mitra Samudera Sejahtera : 7 karyawan
+          <br />
+          PT Selamat Sentosa Berjaya : 189 karyawan
+          <br />
+          PT Terang Terus Terang Selamanya : 27 karyawan
+          <br />
+          PT Ceria Bersama Kami : 46 karyawan
+          <br />
+          PT Fast and Furious Abadi : 12 karyawan
+          <br />
+          PT Jaya Selalu Berlayar : 47 karyawan
+          <br />
+          <br />
+          <b>Nama-nama panitia:</b>
+          Wanita: Cecillia, Cahya, Indah, Devi, Fara, Tantri, Julia, Ida <br />
+          Pria: Sandy, Haris, Budi, Firman, Zulkarnaen, Dandy, Russel, Bambang
+        </Card>
+      </Modal>
       <Card className="border-0 shadow-lg p-4 mt-3">
         <p>
           Kepada Yth. <br />
@@ -192,8 +228,8 @@ const WordAssignment2 = () => {
         <p className="mt-4">Dengan hormat,</p>
         <p>
           Bersama ini kami dari Divisi Human Capital & Community Relations
-          bermaksud untuk mengajukan proposal kegiatan employee engagement yang
-          akan diselenggarakan pada:
+          bermaksud untuk mengajukan proposal kegiatan{" "}
+          <i>Employee Engagement</i> yang akan diselenggarakan pada:
         </p>
         <Row className="mt-2 ms-5">
           <Col sm={3}>
@@ -221,7 +257,7 @@ const WordAssignment2 = () => {
             <div className="d-flex mt-2">
               <span className="me-2">:</span>
               <Form.Select className="w-50" size="sm">
-                {dataJumlahKaryawan.map((item) => (
+                {dataTotalJumlahKaryawan.map((item) => (
                   <option value={item}>{item}</option>
                 ))}
               </Form.Select>
@@ -233,19 +269,11 @@ const WordAssignment2 = () => {
 
         <div className="ms-5 mt-3">
           <p>Nama-nama panitia:</p>
-          <ul className="ms-5">
+          <ol className="ms-5">
             {rowsPanitia.map((item, index) => (
               <li>
-                <div className="d-flex mt-2">
-                  <Form.Select
-                    className="w-25"
-                    size="sm"
-                    id={item.id}
-                    onChange={() =>
-                      (document.getElementById(item.id).style.fontWeight =
-                        "normal")
-                    }
-                  >
+                <div className="d-flex mt-2 ms-1">
+                  <Form.Select className="w-25" size="sm" id={item.id}>
                     {dataNamaPanitia.map((item) => (
                       <option value={item}>{item}</option>
                     ))}
@@ -254,14 +282,21 @@ const WordAssignment2 = () => {
                     className="btn btn-dark px-3 ms-2"
                     onClick={() => removeRowPanitia(index)}
                   >
-                    -
+                    Delete Row
                   </button>
                   <button
-                    id={"panitia-" + item.id}
+                    id={"panitiaBold-" + item.id}
                     className="btn btn-dark fs-7 ms-2"
                     onClick={() => setBoldPanitia(item.id)}
                   >
                     Set Bold
+                  </button>
+                  <button
+                    id={"panitiaItalic-" + item.id}
+                    className="btn btn-dark fs-7 ms-2"
+                    onClick={() => setItalicPanitia(item.id)}
+                  >
+                    Set Italic
                   </button>
                 </div>
               </li>
@@ -269,10 +304,11 @@ const WordAssignment2 = () => {
             <button
               className="btn btn-danger px-3 w-25 mt-2"
               onClick={addRowPanitia}
+              disabled={rowsPanitia.length === 16}
             >
-              +
+              Add Row
             </button>
-          </ul>
+          </ol>
         </div>
         <p className="mt-4">
           Demikian proposal ini kami buat. Besar harapan agar Manajemen dapat
@@ -306,6 +342,7 @@ const WordAssignment2 = () => {
           Next
         </button>
       </div>
+      <Button className="d-flex justify-content-end">Buka</Button>
     </>
   );
 };

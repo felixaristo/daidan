@@ -46,7 +46,7 @@ const App = () => (
           path="/opening-word-assignment"
           element={<OpeningWordAssignment />}
         />
-        <Route path="/question-1" element={<Quiz />} />
+        <Route path="/quiz" element={<Quiz />} />
         <Route path="/assignment" element={<Assignment />} />
         <Route path="/word-assignment" element={<WordAssignment1 />} />
         <Route path="/word-assignment-2" element={<WordAssignment2 />} />

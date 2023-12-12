@@ -157,7 +157,7 @@ input:focus, textarea:focus {
 
 /* quiz */
 .quiz-container {
-  max-width: 500px;
+  /* max-width: 500px; */
   min-width: 250px;
   background: #ffffff;
   border-radius: 4px;
@@ -226,20 +226,4 @@ input:focus, textarea:focus {
 .flex-right {
   display: flex;
   justify-content: flex-end;
-}
-
-.result h3 {
-  font-size: 24px;
-  letter-spacing: 1.4px;
-  text-align: center;
-}
-
-.result p {
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.result p span {
-  color: #800080;
-  font-size: 22px;
 }
